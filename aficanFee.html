@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="icon" type="image/png" href="./images//favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>African Fees | Integrity-Centered Fee Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F5E5E;
+            --primary-dark: #0a4545;
+            --primary-light: #1a7a7a;
+            --secondary: #2FA4A9;
+            --accent: #6ED3CF;
+            --bg-color: #F5F7F7;
+            --text-main: #1E1E1E;
+            --text-light: #FFFFFF;
+            --gray-light: #f0f0f0;
+            --gray: #666666;
+            --shadow-sm: 0 5px 15px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 40px rgba(15, 94, 94, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --border-radius-lg: 20px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== TYPOGRAPHY ========== */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        /* ========== HEADER & NAVIGATION ========== */
+        header {
+            width: 100%;
+            background: white;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .logo span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        /* Desktop Navigation */
+        .tabs ul {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .tabs li a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            padding: 0.7rem 1.2rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .tabs li a i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .tabs li a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tabs li a:hover i {
+            color: white;
+        }
+
+        .tabs li a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tabs li a.active i {
+            color: white;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .hero .title {
+            flex: 1;
+        }
+
+        .hero .title h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .title p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons button {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .primary-btn {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--text-main);
+        }
+
+        .primary-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero .image-title {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero .image-title img {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ========== MECHANISM SECTIONS ========== */
+        .mechanism {
+            padding: 5rem 5%;
+            background-color: var(--bg-color);
+            text-align: center;
+        }
+
+        .mechanism:nth-child(even) {
+            background-color: white;
+        }
+
+        .mechanism-title h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+            position: relative;
+            display: inline-block;
+        }
+
+        .mechanism-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0.5rem auto 0;
+        }
+
+        .mechanism-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .step-card {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .card-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .icon i {
+            font-size: 3rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .step-card:hover .icon i {
+            transform: scale(1.1);
+            color: var(--secondary);
+        }
+
+        .heading h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .text {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .about-content h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 0.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mission {
+            background-color: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .mission span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .about-icon-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-icon-box i {
+            font-size: min(250px, 30vw);
+            color: var(--secondary);
+            filter: drop-shadow(10px 10px 0px var(--accent));
+            transition: var(--transition);
+        }
+
+        .about-icon-box i:hover {
+            transform: rotate(10deg) scale(1.05);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta {
+            padding: 3rem 5%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 1100px;
+            min-height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--border-radius-lg);
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .cta-text h3 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+            max-width: 800px;
+        }
+
+        .cta .hero-buttons .primary-btn {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .cta .hero-buttons .primary-btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .cta .hero-buttons .secondary-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta .hero-buttons .secondary-btn:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 3rem 5% 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 0.3rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            .hero {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .tabs {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                box-shadow: var(--shadow-md);
+            }
+
+            .tabs.active {
+                max-height: 300px;
+            }
+
+            .tabs ul {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .tabs li a {
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 2rem;
+            }
+
+            .hero .title p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .about-content h1::after {
+                margin: 0.5rem auto;
+            }
+
+            .mission {
+                text-align: left;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-section h4::after {
+                margin: 0.3rem auto;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo span {
+                font-size: 1.2rem;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-buttons button {
+                width: 100%;
+            }
+
+            .mechanism-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .title,
+        .hero .image-title,
+        .step-card,
+        .about-content,
+        .about-icon-box {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .step-card:nth-child(3) { animation-delay: 0.3s; }
+        .step-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* ========== UTILITY CLASSES ========== */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/hero-logo.png" alt="African fees logo">
+                <span>African Fees</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="tabs" id="tabs">
+                <ul>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#how-it-works"><i class="fas fa-gear"></i> How it works</a></li>
+                    <li><a href="#benefits"><i class="fa fa-heart"></i> Benefits</a></li>
+                    <li><a href="#about"><i class="fa fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="title">
+                <h1>Integrity-Centered Fee Collection for African Institutions</h1>
+                <p>Collect, track and manage student fees with dignity and zero hassle.</p>
+                <div class="hero-buttons">
+                    <button class="primary-btn" onclick="nav_to_dash()">Start collecting</button>
+                    <button class="secondary-btn">pay a fee</button>
+                </div>
+            </div>
+            <div class="image-title">
+                <img src="images/hero-logo.png" alt="African fees illustration">
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="mechanism" id="how-it-works">
+            <div class="mechanism-title">
+                <h2>How It Works</h2>
+            </div>
+            <div class="mechanism-cards">
+                <div class="step-card">
+                    <div class="card-number">1</div>
+                    <div class="icon"><i class="fa fa-university"></i></div>
+                    <div class="heading">
+                        <h3>Select Institution</h3>
+                    </div>
+                    <div class="text">
+                        Students visit our platform and select their institution
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="card-number">2</div>
+                    <div class="icon"><i class="fa fa-dollar"></i></div>
+                    <div class="heading">
+                        <h3>Choose Fees</h3>
+                    </div>
+                    <div class="text">
+                        Students pick the fee they need to pay from the list
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="card-number">3</div>
+                    <div class="icon"><i class="fa fa-credit-card"></i></div>
+                    <div class="heading">
+                        <h3>Make Payment</h3>
+                    </div>
+                    <div class="text">
+                        Payment is made via Airtel Money and other digital methods
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="card-number">4</div>
+                    <div class="icon"><i class="fa fa-check-circle"></i></div>
+                    <div class="heading">
+                        <h3>Get Cleared Instantly</h3>
+                    </div>
+                    <div class="text">
+                        Once payment is confirmed, clearance is automatic
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="mechanism" id="benefits">
+            <div class="mechanism-title">
+                <h2>Why Choose African Fees</h2>
+            </div>
+            <div class="mechanism-cards">
+                <div class="step-card">
+                    <div class="card-number">1</div>
+                    <div class="icon"><i class="fa fa-clipboard-check"></i></div>
+                    <div class="heading">
+                        <h3>Minimized Errors</h3>
+                    </div>
+                    <div class="text">
+                        Payments are automated and error-free
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="card-number">2</div>
+                    <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="heading">
+                        <h3>Fraud Prevention</h3>
+                    </div>
+                    <div class="text">
+                        All transactions are digital and secure
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="card-number">3</div>
+                    <div class="icon"><i class="fa fa-zap"></i></div>
+                    <div class="heading">
+                        <h3>Saves Time & Energy</h3>
+                    </div>
+                    <div class="text">
+                        No more long lines or paperwork for payments
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="card-number">4</div>
+                    <div class="icon"><i class="fa fa-chart-pie"></i></div>
+                    <div class="heading">
+                        <h3>Smart Reporting</h3>
+                    </div>
+                    <div class="text">
+                        Generate accurate reports to support better financial decisions
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about" id="about">
+            <div class="about-container">
+                <div class="about-content">
+                    <h1>About Us</h1>
+                    <p>
+                        African Fees Limited was founded in 2025 by a group of Applied Computer Science students at 
+                        <strong>Lilongwe University of Agriculture and Natural Resources (LUANAR).</strong>
+                    </p>
+                    <p class="mission">
+                        <span>Our mission</span> is to bring integrity and innovation to financial systems in education across Africa.
+                    </p>
+                </div>
+                <div class="about-icon-box">
+                    <i class="fa fa-globe"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="cta-container">
+                <div class="cta-text">
+                    <h3>Partner with us for a seamless Fee Collection Experience</h3>
+                </div>
+                <div class="hero-buttons">
+                    <button class="primary-btn">Get Started</button>
+                    <button class="secondary-btn">Request Demo</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 African Fees Limited. All rights reserved. Built with integrity in Malawi.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        //navigate to dashboard
+        function nav_to_dash(){
+            window.location.href = "https://dashboard.africanfees.com"
+        }
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const tabs = document.getElementById('tabs');
+
+        menuToggle.addEventListener('click', () => {
+            tabs.classList.toggle('active');
+            // Toggle icon between bars and times
+            const icon = menuToggle.querySelector('i');
+            if (tabs.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.tabs a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabs.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                
+                // Update active state
+                document.querySelectorAll('.tabs a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Smooth scroll to section
+                const targetId = link.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Update active menu item on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.tabs a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!tabs.contains(e.target) && !menuToggle.contains(e.target)) {
+                tabs.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
